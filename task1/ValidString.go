@@ -22,25 +22,5 @@ func ValidString(str string) bool {
 		}
 
 	}
-
-	// for i := 0; i < len(str); i++ {
-	// 	s := string(str[i])
-	// 	if s == "(" || s == "[" || s == "{" {
-	// 		slice = append(slice, maps[s])
-	// 	} else {
-
-	// 		if len(slice) == 0 {
-	// 			return false
-	// 		}
-	// 		v := slice[len(slice)-1]
-	// 		slice = slice[:len(slice)-1]
-	// 		if v != s {
-	// 			return false
-	// 		}
-
-	// 	}
-
-	// }
-
 	return len(slice) == 0
 }
