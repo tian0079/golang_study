@@ -21,7 +21,7 @@ func GoroutineFunc() {
 
 func printOddNumber(numbers []int, wg *sync.WaitGroup) {
 	defer wg.Done()
-	for i := 0; i < len(numbers); i++ {
+	for i := range numbers {
 		if numbers[i]%2 != 0 {
 			fmt.Println("奇数", numbers[i])
 		}
@@ -29,7 +29,7 @@ func printOddNumber(numbers []int, wg *sync.WaitGroup) {
 }
 func printEvenNumber(numbers []int, wg *sync.WaitGroup) {
 	defer wg.Done()
-	for i := 0; i < len(numbers); i++ {
+	for i := range numbers {
 		if numbers[i]%2 == 0 {
 			fmt.Println("偶数", numbers[i])
 		}
