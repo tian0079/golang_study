@@ -9,6 +9,7 @@ func TwoSum(nums []int, target int) ([2]int, bool) {
 				array[0] = i
 				array[1] = j
 				flag = true
+				return array, false
 			}
 		}
 	}
