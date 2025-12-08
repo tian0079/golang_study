@@ -8,6 +8,7 @@ import (
 
 func main() {
 
+	fmt.Println("-------------------------tesk1 两数之和 START------------------------------")
 	// nums := []int{
 	// 	2, 7, 11, 15,
 	// }
@@ -23,7 +24,24 @@ func main() {
 		fmt.Println("两数之和", sum)
 	}
 
+	fmt.Println("-------------------------tesk2 两数之和 END--------------------------------")
+
+	fmt.Println()
+
+	fmt.Println("-------------------------tesk2 指针START--------------------------------")
 	//指针
-	number := 5
-	fmt.Println("指针", task2.ChangeNumber(&number))
+	number, number1 := 5, 5
+	task2.ChangeNumber(&number)
+	fmt.Println("指针 题目1:", number)
+
+	task2.Multiplication(&number1)
+	fmt.Println("指针 题目2:", number1)
+	fmt.Println("-------------------------tesk2 指针END--------------------------------")
+
+	fmt.Println()
+
+	fmt.Println("-------------------------tesk2 Goroutine START------------------------")
+	fmt.Println("题目1：")
+	task2.GoroutineFunc()
+	fmt.Println("-------------------------tesk2 Goroutine END--------------------------")
 }
