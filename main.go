@@ -61,4 +61,20 @@ func main() {
 	scheduler.Run()
 
 	fmt.Println("-------------------------task2 Goroutine END--------------------------")
+
+	fmt.Println("-------------------------task2 面相对象 START------------------------")
+	fmt.Println("题目1")
+	Rectangle := &task2.Rectangle{}
+	Rectangle.Perimeter()
+	Rectangle.Area()
+
+	fmt.Println("题目2")
+	Employee := &task2.Employee{}
+	Employee.EmployeeID = 123
+	Employee.Age = 23
+	Employee.Name = "测试姓名"
+
+	Employee.PrintInfo()
+
+	fmt.Println("-------------------------task2 面相对象 END--------------------------")
 }
