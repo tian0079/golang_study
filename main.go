@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	fmt.Println("-------------------------tesk1 两数之和 START------------------------------")
+	fmt.Println("-------------------------task1 两数之和 START------------------------------")
 	// nums := []int{
 	// 	2, 7, 11, 15,
 	// }
@@ -24,11 +24,11 @@ func main() {
 		fmt.Println("两数之和", sum)
 	}
 
-	fmt.Println("-------------------------tesk2 两数之和 END--------------------------------")
+	fmt.Println("-------------------------task2 两数之和 END--------------------------------")
 
 	fmt.Println()
 
-	fmt.Println("-------------------------tesk2 指针START--------------------------------")
+	fmt.Println("-------------------------task2 指针START--------------------------------")
 	//指针
 	number, number1 := 5, 5
 	task2.ChangeNumber(&number)
@@ -36,12 +36,29 @@ func main() {
 
 	task2.Multiplication(&number1)
 	fmt.Println("指针 题目2:", number1)
-	fmt.Println("-------------------------tesk2 指针END--------------------------------")
+	fmt.Println("-------------------------task2 指针END--------------------------------")
 
 	fmt.Println()
 
-	fmt.Println("-------------------------tesk2 Goroutine START------------------------")
+	fmt.Println("-------------------------task2 Goroutine START------------------------")
 	fmt.Println("题目1：")
 	task2.GoroutineFunc()
-	fmt.Println("-------------------------tesk2 Goroutine END--------------------------")
+
+	fmt.Println("题目2：")
+
+	scheduler := &task2.TaskScheduling{}
+
+	scheduler.AddTask(func() (string, interface{}) {
+		return "任务1", "结果1"
+	})
+	scheduler.AddTask(func() (string, interface{}) {
+		return "任务2", "结果2"
+	})
+	scheduler.AddTask(func() (string, interface{}) {
+		return "任务3", "结果3"
+	})
+
+	scheduler.Run()
+
+	fmt.Println("-------------------------task2 Goroutine END--------------------------")
 }
