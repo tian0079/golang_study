@@ -61,7 +61,7 @@ func main() {
 	scheduler.Run()
 
 	fmt.Println("-------------------------task2 Goroutine END--------------------------")
-
+	fmt.Println()
 	fmt.Println("-------------------------task2 面相对象 START------------------------")
 	fmt.Println("题目1")
 	Rectangle := &task2.Rectangle{}
@@ -77,4 +77,15 @@ func main() {
 	Employee.PrintInfo()
 
 	fmt.Println("-------------------------task2 面相对象 END--------------------------")
+	fmt.Println()
+
+	fmt.Println("-------------------------task2 Channel START--------------------------")
+	fmt.Println("题目1")
+	task2.RunPrintNumberFunc()
+	fmt.Println()
+	fmt.Println("题目2")
+	//带缓冲的
+	task2.PrintChannelBuffer()
+
+	fmt.Println("-------------------------task2 Channel END----------------------------")
 }
