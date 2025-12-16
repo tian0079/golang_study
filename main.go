@@ -88,4 +88,15 @@ func main() {
 	task2.PrintChannelBuffer()
 
 	fmt.Println("-------------------------task2 Channel END----------------------------")
+	fmt.Println()
+	fmt.Println("-------------------------task2 锁机制 START--------------------------")
+	fmt.Println("题目1")
+	lockShared := task2.LockSharedCounter{}
+	lockShared.SharedCounter()
+	fmt.Println()
+	fmt.Println("题目2")
+	lockShared = task2.LockSharedCounter{}
+	lockShared.ActionCount()
+
+	fmt.Println("-------------------------task2 锁机制 END----------------------------")
 }
