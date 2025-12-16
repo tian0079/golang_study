@@ -17,7 +17,11 @@ func (lockSharedCounter *LockSharedCounter) SharedCounter() {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			lockSharedCounter.increment()
+
+			for i := 0; i < 1000; i++ {
+				lockSharedCounter.increment()
+			}
+
 		}()
 	}
 	wg.Wait()
@@ -26,9 +30,7 @@ func (lockSharedCounter *LockSharedCounter) SharedCounter() {
 
 func (lockSharedCounter *LockSharedCounter) increment() {
 	lockSharedCounter.mu.Lock()
-	for i := 0; i < 1000; i++ {
-		lockSharedCounter.count++
-	}
+	lockSharedCounter.count++
 	lockSharedCounter.mu.Unlock()
 }
 
@@ -38,7 +40,9 @@ func (lockSharedCounter *LockSharedCounter) ActionCount() {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			lockSharedCounter.incrementAtomic()
+			for i := 0; i < 1000; i++ {
+				lockSharedCounter.incrementAtomic()
+			}
 		}()
 	}
 	wg.Wait()
@@ -46,8 +50,5 @@ func (lockSharedCounter *LockSharedCounter) ActionCount() {
 }
 
 func (lockSharedCounter *LockSharedCounter) incrementAtomic() {
-	for i := 0; i < 1000; i++ {
-		atomic.AddInt64((*int64)(&lockSharedCounter.count), int64(1))
-	}
-
+	atomic.AddInt64((*int64)(&lockSharedCounter.count), int64(1))
 }
